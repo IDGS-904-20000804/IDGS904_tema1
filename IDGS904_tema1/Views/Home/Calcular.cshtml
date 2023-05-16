@@ -1,0 +1,35 @@
+﻿@model IDGS904_tema1.Models.OperasBas
+
+@{
+    ViewBag.Title = "Calcular";
+}
+
+<h2>Calcular</h2>
+<div class="container">
+    <div class="row div col-lg-6">
+        <form action="/" method="POST">
+            <label for="num1">Número 1:</label>
+            <input type="number" name="num1" value="" />
+            <br />
+            <label for="num2">Número 2:</label>
+            <input type="number" name="num2" value="" />
+            <br />
+            <input type="radio" id="sumar" name="operacion" value=1>
+            <label for="sumar">sumar</label><br>
+            <br />
+            <input type="radio" id="restar" name="operacion" value=2>
+            <label for="restar">restar</label><br>
+            <br />
+            <input type="radio" id="multiplicar" name="operacion" value=3>
+            <label for="multiplicar">multiplicar</label>
+            <br />
+            <input type="radio" id="dividir" name="operacion" value=4>
+            <label for="dividir">dividir</label>
+            <br />
+            <input type="submit" name="cal" value="Calcular" />
+        </form>
+        <div class="row div col-lg-6">
+            <p>El resultado es: @Html.DisplayFor( model => Model.res)</p>
+        </div>
+    </div>
+</div>

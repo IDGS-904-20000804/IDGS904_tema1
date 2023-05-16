@@ -1,0 +1,46 @@
+﻿
+@{
+    ViewBag.Title = "Index2";
+}
+
+<h2>Index2</h2>
+
+<br />
+@ViewBag.grupo
+<br />
+@ViewBag.valor
+<br />
+@ViewData["materia"]
+<br />
+@Html.ActionLink("Mi ruta", "Vista2")
+<br />
+@Html.ActionLink("Mi ruta", "Index", "Home", null,
+    new { dat0 = "", @class = "btn btn-danger" })
+<br />
+<br />
+<br />
+
+<form action="/Escuela/Vista2">
+    <h4>Punto 1</h4>
+    <br />
+    <label for="x1">x1</label>
+    <input type="number" id="x1" name="x1">
+    <br />
+    <label for="y1">y1</label>
+    <input type="number" id="y1" name="y1">
+    <br />
+    <h4>Punto 2</h4>
+    <br />
+    <label for="x2">x2</label>
+    <input type="number" id="x2" name="x2">
+    <br />
+    <label for="y2">y2</label>
+    <input type="number" id="y2" name="y2">
+    <br />
+
+    <input type="submit" value="Calcular">
+</form>
+
+<br />
+<p>La sitancia entre los dos puntos es:</p>
+@ViewBag.resultado
