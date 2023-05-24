@@ -37,6 +37,7 @@ namespace IDGS904_tema1.Controllers
             return Json(pulque, JsonRequestBehavior.AllowGet);
         }
 
+
         public RedirectResult Vista()
         {
             return Redirect("https://google.com.mx");
@@ -45,10 +46,20 @@ namespace IDGS904_tema1.Controllers
         public RedirectToRouteResult Vista2(Distancia objDistancia)
         {
             objDistancia.calcularDistancia();
-            TempData["nombre"] = "Ivan";
             TempData["objDistancia"] = objDistancia;
+            return RedirectToAction("Resultado", "Escuela");
+            // TempData["nombre"] = "Ivan";
             // return RedirectToAction("Index", "Home");
-            return RedirectToAction("Index2");
+        }
+        public ActionResult Resultado()
+        {
+            Distancia objDistancia = new Distancia();
+            if (TempData.ContainsKey("objDistancia"))
+            {
+                objDistancia = TempData["objDistancia"] as Distancia;
+            }
+            ViewBag.resultado = objDistancia.resultado;
+            return View();
         }
 
         public ActionResult Index2()
